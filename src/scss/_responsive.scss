@@ -1,0 +1,69 @@
+@media (max-width: 991.98px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 430px 260px;
+    min-height: auto;
+  }
+
+  .hero-walkers {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .hero-landscape {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .hero-home {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .hero-brand {
+    left: 50%;
+    top: 72px;
+    transform: translateX(-50%);
+  }
+
+  .contact-shell {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575.98px) {
+  body {
+    font-size: 14px;
+  }
+
+  .hero-grid {
+    display: block;
+  }
+
+  .hero-grid img {
+    height: auto;
+  }
+
+  .hero-walkers {
+    aspect-ratio: 0.95;
+  }
+
+  .hero-landscape,
+  .hero-home {
+    display: none;
+  }
+
+  .hero-brand {
+    top: 42px;
+    width: 180px;
+  }
+
+  .collection-body,
+  .contact-shell {
+    padding: 26px;
+  }
+
+  .strip-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
