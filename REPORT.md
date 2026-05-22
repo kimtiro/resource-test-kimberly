@@ -2,79 +2,84 @@
 
 ## Approach and Order of Work
 
-I began by reviewing the desktop mockup and breaking the page into its main content sections: the image-based hero, intro copy, collections area, video-style nature section, brochure CTA, required contact form, lifestyle image row, and footer/legal area.
+I started by reviewing the provided Figma design and identifying the main sections of the landing page: the image-based hero, intro copy, home collections, video-style nature section, brochure CTA, lifestyle image row, and footer/legal area. I used the Figma export package as the primary visual reference for the page frame, photography, logo assets, and overall style.
 
-After identifying the structure, I set up the project using Vite, Bootstrap, and SCSS. I built the semantic HTML first so the content order was clear, then used Bootstrap's grid system and custom SCSS to match the visual direction of the design. I used the Figma export package as the main visual reference for frame size, imagery, and proportions.
+After that, I set up the project with Vite, Bootstrap, and SCSS. I built the page structure first with semantic HTML, then organized the styling into SCSS partials for settings, base styles, header/hero, content sections, contact form, footer, and responsive behavior.
 
-Once the base desktop layout was working, I implemented the two written changes that were not reflected directly in the mockup: the three-column collections revision and the new lead capture form section. I then added the server-side form validation endpoint, tested the form responses, checked the responsive layout at smaller breakpoints, and deployed the finished project to Vercel.
+Once the base page was in place, I worked through the requirements that were not directly represented in the Figma mockup: the revised three-column collections section, the added third collection, and the unmocked contact form section. I then added the server-side form endpoint, tested the success and error responses, checked responsive behavior, pushed the code to GitHub, and deployed the finished page to Vercel.
 
 ## AI Usage
 
-I used AI as a development assistant for:
+I used AI as a development assistant throughout the project. Specific examples include:
 
-1. Interpreting the assignment requirements and turning them into an implementation checklist.
-2. Extracting and organizing usable assets from the provided PDF/Figma export package.
-3. Drafting parts of the Bootstrap/SCSS structure and reviewing responsive layout decisions.
-4. Debugging build/deployment issues and checking the server-side form endpoint.
-5. Helping organize this written report so it addressed each requested point clearly.
+1. Helping interpret the assignment requirements and turn them into an implementation checklist.
+2. Helping inspect the PDF/Figma export package and identify usable image assets.
+3. Assisting with drafting and organizing the Bootstrap, HTML, SCSS, and JavaScript structure.
+4. Helping debug build, GitHub, and Vercel deployment issues.
+5. Helping test the server-side form endpoint and confirm both success and validation error responses.
+6. Helping organize this written report so that it directly addresses the required submission points.
 
-Work I handled through my own judgment included:
-
-1. Deciding the final page structure and section order.
-2. Choosing how the layout should adapt on tablet and mobile.
-3. Designing the unmocked contact form section to fit the existing visual language.
-4. Interpreting the collections revision and creating a matching third collection.
-5. Reviewing the page visually and deciding which adjustments were necessary before submission.
+The final implementation decisions were made by me based on the assignment requirements and the visual direction of the mockup. I decided how to handle the responsive layout, where to place the contact form, how to interpret the collections revision, how to handle the video-style section without a provided video source, and what tradeoffs were appropriate for the deadline.
 
 ## Independent Decisions
 
-1. I kept the desktop hero as a strong image grid because the mockup relies heavily on photography and brand atmosphere. On mobile, I simplified the hero so the layout stays readable and does not become a cramped collage.
+1. I treated the Figma design as the visual baseline, but followed the written design revision for the collections area. The mockup shows the collections in a two-item horizontal layout, but the written instruction specifically asked for a three-column format with a third collection.
 
-2. I converted the collections area into three equal Bootstrap columns on desktop, then allowed the cards to stack naturally on smaller screens. This keeps the requested three-column desktop revision while preserving readability on mobile.
+2. I created the third collection as "Summit Collection" and matched the format of the existing collection content: pricing line, uppercase collection name, specs, and short descriptive copy. Since no official third collection copy was provided, I made it clearly consistent with the existing two instead of introducing a different style.
 
-3. I created a third "Summit Collection" card using the same visual pattern as the existing collections: image first, pricing line, uppercase collection name, specs, and short descriptive copy. I chose this approach so the new card felt intentional instead of visually bolted on.
+3. I placed the contact form directly after the brochure CTA because that is the point where the user is already being prompted to take action. This made the unmocked form feel like a natural lead-capture step rather than a random inserted section.
 
-4. I placed the contact form directly after the brochure CTA because that is where the user has already been prompted to take action. This makes the lead capture section feel like a natural continuation of the page.
+4. I used a Vercel serverless function for the form because the assignment required server-side validation. I did not add a database because database storage was listed as a bonus, and I prioritized a stable working form that validates and returns success/error messages.
 
-5. I used a Vercel serverless function for the form because it satisfies the server-side validation requirement and keeps deployment straightforward for a static front-end project.
+5. I made the video-style section interactive by opening an accessible media preview modal. No final video URL or video file was provided, so I used the provided animated Figma asset rather than inventing unsupported external video content.
+
+6. I organized the code into separate HTML partials and SCSS partials to make the project easier to review and maintain, while still generating a normal `index.html` for Vite/Vercel.
 
 ## Design Revision
 
-The original mockup showed the collections content in a two-item layout. I interpreted the requested revision as a client change that needed to preserve the established design style while changing the content structure.
+The Figma mockup shows the collections area as two horizontal feature blocks. The written revision requested that this area be converted into a three-column format and that a third collection be added.
 
-I converted the area into a three-column layout using Bootstrap columns. Each collection card uses the same muted background, home image, typography style, pricing/spec hierarchy, and spacing. Since no third collection details were provided, I designed a third collection that matched the tone and structure of the first two rather than introducing a different visual style.
+I interpreted that as a simulated client change after design approval. I kept the visual language from the mockup, including the muted background, home imagery, uppercase collection headings, pricing/spec hierarchy, and restrained spacing, but changed the structure to three cards across on desktop. On smaller screens, the cards stack so the content remains readable.
+
+Because no official third collection details were provided, I created a matching third collection using the same content pattern and tone. In a real project, I would ask the client for approved collection name, pricing, specs, and copy before launch.
 
 ## Contact Form Section
 
-The contact form was not mocked up, so I designed it to feel connected to the existing page rather than like a separate plugin or generic form. I used the same calm neutral palette, uppercase heading style, generous spacing, and gold accent color used elsewhere in the page.
+The contact form section was not included in the mockup, so I designed it to fit the existing page rather than look like a generic form. I used the same neutral palette, uppercase heading style, spacious layout, and gold accent color already present in the design.
 
-The form includes full name, email address, type of inquiry, message, and a submit button. It is connected to a server-side endpoint that validates all fields and returns either a success message or clear validation errors to the user.
+The form includes full name, email address, inquiry type, message, and a submit button. It posts to a Vercel serverless endpoint at `/api/contact`. The endpoint validates all fields server-side and returns either a success response or a validation error response.
+
+There is no database attached. I considered database storage, but the assignment describes that as a bonus. I chose to keep the required functionality stable and complete: server-side validation plus success/error feedback.
 
 ## Questions Documented During Development
 
-1. Should the third collection use official Shea Homes data or should I create matching placeholder content?
+1. Should the collections section match the Figma exactly or follow the written revision?
 
-   I resolved this by creating a third collection that clearly matches the style of the existing two collections. Since the written direction asked for a third collection but did not provide official details, I treated this as a design/content interpretation task.
+   I resolved this by following the written revision. The Figma was used as the style reference, but the layout was changed to three columns because the written instruction explicitly requested that change.
 
-2. Should the contact form store submissions in a database, send an email, or connect to a CRM?
+2. What should the third collection be called and what details should it include?
 
-   I resolved this by implementing the required server-side validation and user feedback. If this were a production project, I would ask which CRM, email service, or database should receive the lead data.
+   I resolved this by creating a matching third collection using placeholder-style content that follows the established pattern. In a real project, I would ask for approved naming, pricing, specs, and marketing copy.
 
-3. Should the video preview actually play a video?
+3. Should the contact form store leads in a database?
 
-   I resolved this by matching the mockup as a visual video preview with an accessible play-style button. I would connect it to the final approved video source if one were provided.
+   I resolved this by implementing the required server-side validation and user feedback, without database storage. If this were a production build, I would ask where leads should be stored or sent, such as a CRM, email service, or database.
 
-4. Should the mobile hero preserve all desktop images?
+4. Should the video-style preview play a real video?
 
-   I resolved this by simplifying the mobile hero and prioritizing the strongest lifestyle image. This prevents the first screen from feeling crowded on small devices.
+   No video source was provided, so I resolved this by creating an interactive media preview using the provided animated Figma asset. This keeps the interaction useful without inventing unsupported content.
 
-5. Should the footer legal copy exactly match the final legal language?
+5. Should the brochure CTA download a real PDF?
 
-   I resolved this by including concise legal/footer language in the same visual position. In a real client project, I would request the approved legal copy before launch.
+   No brochure file was provided, so I linked the brochure CTA to the lead capture form. This aligns with the requested placement of the contact form between the brochure button and the image row.
 
-6. Should the brochure button trigger a download or lead capture?
+6. Should the mobile hero preserve the full desktop collage?
 
-   I resolved this by linking the brochure CTA to the contact form section, because the assignment specifically requested a lead capture section between the brochure button and the image row.
+   I resolved this by simplifying the mobile hero so the first screen remains focused and readable. The desktop design uses a large image grid, but on small screens that would become crowded if preserved exactly.
+
+7. Should the footer legal copy exactly match final approved legal language?
+
+   I included concise footer/legal language in the correct area. In a real project, I would request the final approved legal copy before launch.
 
 ## Time Spent
 
