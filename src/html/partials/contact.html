@@ -1,0 +1,44 @@
+<section id="contact" class="lead-capture section-pad pt-0" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="contact-shell">
+      <div>
+        <p class="eyebrow">Stay Close To Solstice</p>
+        <h2 id="contact-title">Request the ranch living brochure</h2>
+        <p>
+          Share a few details and the Solstice team will help you explore the right
+          collection, availability, and next steps.
+        </p>
+      </div>
+      <form id="leadForm" class="lead-form" novalidate>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="fullName" class="form-label">Full name</label>
+            <input id="fullName" name="fullName" class="form-control" type="text" autocomplete="name" required />
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email address</label>
+            <input id="email" name="email" class="form-control" type="email" autocomplete="email" required />
+          </div>
+          <div class="col-12">
+            <label for="inquiryType" class="form-label">Type of inquiry</label>
+            <select id="inquiryType" name="inquiryType" class="form-select" required>
+              <option value="">Select an option</option>
+              <option>Schedule a tour</option>
+              <option>Request pricing</option>
+              <option>Ask about floorplans</option>
+              <option>General question</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit Inquiry</button>
+            <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
