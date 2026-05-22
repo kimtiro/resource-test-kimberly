@@ -35,3 +35,28 @@ if (form && message) {
     }
   });
 }
+
+const mediaDialog = document.querySelector("#mediaDialog");
+const openMedia = document.querySelector("[data-open-media]");
+const closeMedia = document.querySelector("[data-close-media]");
+
+if (mediaDialog && openMedia && closeMedia) {
+  openMedia.addEventListener("click", () => {
+    if (typeof mediaDialog.showModal === "function") {
+      mediaDialog.showModal();
+      return;
+    }
+
+    mediaDialog.setAttribute("open", "");
+  });
+
+  closeMedia.addEventListener("click", () => {
+    mediaDialog.close();
+  });
+
+  mediaDialog.addEventListener("click", (event) => {
+    if (event.target === mediaDialog) {
+      mediaDialog.close();
+    }
+  });
+}

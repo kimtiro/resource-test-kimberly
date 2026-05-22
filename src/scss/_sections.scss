@@ -75,6 +75,47 @@
   content: none;
 }
 
+.media-dialog {
+  background: transparent;
+  border: 0;
+  max-width: min(1080px, calc(100vw - 32px));
+  padding: 0;
+  width: 100%;
+}
+
+.media-dialog::backdrop {
+  background: rgb(22 20 18 / 82%);
+}
+
+.media-dialog__inner {
+  background: #12100e;
+  position: relative;
+}
+
+.media-dialog__inner img {
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.media-dialog__close {
+  align-items: center;
+  background: rgb(255 255 255 / 94%);
+  border: 0;
+  color: var(--ink);
+  display: inline-flex;
+  font-size: 2rem;
+  height: 44px;
+  justify-content: center;
+  line-height: 1;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 44px;
+  z-index: 1;
+}
+
 .highline h2,
 .lead-capture h2 {
   font-family: $font-family-sans-serif;

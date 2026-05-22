@@ -1,7 +1,15 @@
 <section class="video-band" aria-label="Solstice nature video preview">
   <img src="/assets/video-nature.png" alt="Sunlight filtering through leaves" />
-  <button class="play-button" type="button" aria-label="Play video"></button>
+  <button class="play-button" type="button" aria-label="Play Solstice preview video" data-open-media></button>
 </section>
+
+<dialog class="media-dialog" id="mediaDialog" aria-labelledby="mediaDialogTitle">
+  <div class="media-dialog__inner">
+    <button class="media-dialog__close" type="button" aria-label="Close video preview" data-close-media>&times;</button>
+    <h2 id="mediaDialogTitle" class="visually-hidden">Solstice community preview</h2>
+    <img src="/assets/hero-walkers.gif" alt="People walking through a natural Solstice trail" />
+  </div>
+</dialog>
 
 <section class="highline section-pad text-center">
   <div class="container-narrow">
